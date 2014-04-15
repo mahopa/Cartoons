@@ -1,0 +1,20 @@
+﻿
+    <input type="text" ng-model="name" placeholder="Character Name" />
+    <input type="text" ng-model="cartoon" placeholder="Cartoon the Star In" />
+    <input type="text" ng-model="pic" placeholder="URL to Picture" />
+    <div class="btn btn-info fa fa-linux"
+         ng-click="addCharacter(name, cartoon, pic)"></div>
+     <br/>Search:<input type="text" ng-model="search" />
+<input type="number" ng-model="take" ng-init="take=3" />
+    <table class="table table-striped">
+        <tbody>
+            <tr ng-repeat="Character in Characters | 
+                filter: search | 
+                orderBy:'name' | 
+                limitTo: take">
+                <td>{{Character.name}}</td>
+                <td>{{Character.cartoon}}</td>
+                <td><a class="btn btn-default" href="#/detail/{{Character.key}}">Details</a></td>
+            </tr>
+        </tbody>
+    </table>
